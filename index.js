@@ -34,7 +34,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 
 const client = require('twilio')(accountSid, authToken);
 
-const sid = 'VA093d2a8a0366db89f97301894f4e20a1'
+const sid = 'VA093d2a8a0366db89f97301894f4e20a1';
 
 app.post('/send-otp', async (req, res) => {
     const number = countryCode + req.body.number
