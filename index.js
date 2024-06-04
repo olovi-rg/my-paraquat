@@ -9,7 +9,7 @@ const axios = require('axios')
 
 const countryCode = '+1'
 
-const allowedOrigins = ['http://localhost:5500', 'http://127.0.0.1:5500/', 'http://192.168.0.107:5500', 'https://publicjusticeadvocates.com', 'https://www.publicjusticeadvocates.com'];
+const allowedOrigins = ['http://localhost:5500', 'http://127.0.0.1:5500/', 'http://192.168.0.107:5500','http:// 192.168.0.42:60135', 'https://publicjusticeadvocates.com', 'https://www.publicjusticeadvocates.com'];
 
 app.use(cors({
     origin: function (origin, callback) {
@@ -592,6 +592,40 @@ async function submitRoundupNewNoOTP(formData) {
         // Handle failure
     }
 }
+
+
+
+
+//Testing-form
+
+async function newTestingForm(formData) {
+
+    var baseSubmitURL = 'https://api.hsforms.com/submissions/v3/integration/submit'
+    // Add the HubSpot portalID where the form should submit
+    var portalId = '42660938'
+    // Add the HubSpot form GUID from your HubSpot portal
+    var formGuid = '6d6a1ce9-a033-4472-8b82-263db07f5dda' //replace with the formGUID copied from the form created inside HubSpot Forms
+    var submitURL = `${baseSubmitURL}/${portalId}/${formGuid}`
+    try {
+        const submitted = await submitHSForm(submitURL, formData);
+        console.log('submitURL, formData :', submitURL, formData);
+        console.log('Form submitted successfully', submitted);
+        return submitted
+        // Handle success
+    } catch (error) {
+        console.error(error);
+        return false
+        // Handle failure
+    }
+}
+
+
+
+
+
+
+
+
 function isUSPhoneNumber(phoneNumberToVerify) {
 
     let phoneNumber = phoneNumberToVerify.replace(/-/g, '');

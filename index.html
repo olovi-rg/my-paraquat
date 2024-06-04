@@ -219,13 +219,13 @@
 
 
 <!-- TrustedForm -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     (function () {
         var tf = document.createElement('script');
         tf.type = 'text/javascript'; tf.async = true;
         tf.src = ("https:" == document.location.protocol ? 'https' : 'http') + "://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&ping_field=xxTrustedFormPingUrl&l=" + new Date().getTime() + Math.random();
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s);
-    })();
+    })(); -->
 </script>
 <noscript>
     <img src="https://api.trustedform.com/ns.gif" />
@@ -273,24 +273,21 @@
                         <br />
 
                         <div>
-                            <label>Have you (or a loved one) ever mixed, sprayed, applied, transferred, or worked in a
-                                paraquat manufacturing plant?</label>
+                            <label>Testing radio button one?</label>
                         </div>
                         <div>
-                            <input type="radio" id="occupation-yes" name="paraquat_manufacturing_plant" value="yes"
-                                required>
+                            <input type="radio" id="occupation-yes" name="testing_radio_button_one_" value="yes" required>
                             <label style="display: inline-flex;margin-top: 0;" for="occupation-yes">Yes</label>
-                            <input type="radio" id="occupation-no" name="paraquat_manufacturing_plant" value="no"
-                                required>
+                            <input type="radio" id="occupation-no" name="testing_radio_button_one_" value="no" required>
                             <label style="display: inline-flex;margin-top: 0;" for="occupation-no">No</label>
                         </div>
                         <div>
-                            <label>Have you (or a loved one) been diagnosed with Parkinson’s disease?</label>
+                            <label>Testing radio button two?</label>
                         </div>
                         <div>
-                            <input type="radio" id="diagnosed-yes" name="parkinsons_disease" value="yes" required>
+                            <input type="radio" id="diagnosed-yes" name="testing_radio_button_two_" value="yes" required>
                             <label style="display: inline-flex;margin-top: 0;" for="diagnosed-yes">Yes</label>
-                            <input type="radio" id="diagnosed-no" name="parkinsons_disease" value="no" required>
+                            <input type="radio" id="diagnosed-no" name="testing_radio_button_two_" value="no" required>
                             <label style="display: inline-flex;margin-top: 0;" for="diagnosed-no">No</label>
                         </div>
                         <div>
@@ -299,21 +296,9 @@
                         <div>
                             <div style="display: flex;margin-top:20px">
                                 <input style="display:block;margin: 0 5px;height: fit-content;margin-top: 6px;" type="checkbox" id="consent"
-                                    name="consent_paraquat" value="accepted" required>
+                                    name="select_this_below_check_box_" value="accepted" required>
 
-                                <label for="consent" style="display: inline-flex;margin-top: 0;">By selecting this box,
-                                    I expressly consent to receive autodialed calls and texts at the number provided
-                                    above for the purposes of facilitating my retention of counsel. I acknowledge that I
-                                    am not required to provide this consent as a condition of retaining counsel or
-                                    utilizing services. This request and permission override any do-not-call registry
-                                    rules or list, or any other applicable law or regulation. Those responding to this
-                                    ad confirm they have carefully read and consent to the Terms of Use and Privacy
-                                    Policy contained in any links, website or publication by the law firm and/or its
-                                    representatives, marketing or otherwise. I understand that submitting this
-                                    information does not create an attorney-client relationship.
-
-
-                                </label>
+                                <label for="consent" style="display: inline-flex;margin-top: 0;">Select this below check box,</label>
                             </div>
                         </div>
                         <button id="custom-form-submit" class="" type="submit">Verify OTP & Submit Form</button>
@@ -333,8 +318,8 @@
 
 <script>
 
-    const serverURL = 'https://roundup-lawsuit.onrender.com'
-    // const serverURL = 'http://192.168.0.107:6969'
+   // const serverURL = 'https://roundup-lawsuit.onrender.com'
+     const serverURL = 'http:// 192.168.0.42:60135'
 
 
     const customForm = document.getElementById('contactForm-custom')
@@ -348,7 +333,7 @@
 
     async function handleSubmit() {
 
-        const sendURL = serverURL + '/send-otp'
+        const sendURL = serverURL + '/new-test-submission'
 
         const jsonData = {
             number: document.getElementById('phone').value,
@@ -413,7 +398,7 @@
 
 
     async function handleOTP() {
-        const sendURL = serverURL + '/verify-otp'
+        const sendURL = serverURL + '/new-test-submission'
 
         const formData = prepareHSFormSubmission(customForm);
 
